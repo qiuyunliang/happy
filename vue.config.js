@@ -1,7 +1,9 @@
 module.exports = {
   css: {
     loaderOptions: {
-      less: {},
+      less: {
+        javascriptEnabled: true,
+      },
     },
   },
   devServer: {
