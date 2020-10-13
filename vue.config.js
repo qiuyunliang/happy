@@ -1,4 +1,5 @@
 module.exports = {
+  // 开启javascriptEnabled
   css: {
     loaderOptions: {
       less: {

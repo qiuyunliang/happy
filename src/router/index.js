@@ -95,4 +95,10 @@ router.afterEach(() => {
   NProgress.done();
 });
 
+// 网上查询添加下列4行用来处理 <NavigationDuplicated: Avoided redundant navigation to current location: "/".> 的问题
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
+
 export default router;

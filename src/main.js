@@ -11,6 +11,10 @@ import {
   Form,
   Input,
   Checkbox,
+  Breadcrumb,
+  Select,
+  Row,
+  Col,
 } from 'ant-design-vue';
 
 // 单独引入Button及其样式, 利用babel可以做到按需引入, 具体配置在babel.config.js中, 参见https://www.antdv.com/docs/vue/introduce-cn/
@@ -30,6 +34,18 @@ Vue.use(Button);
 Vue.use(Form);
 Vue.use(Input);
 Vue.use(Checkbox);
+Vue.use(Breadcrumb);
+Vue.use(Select);
+Vue.use(Row);
+Vue.use(Col);
+
+import { message } from 'ant-design-vue';
+Vue.prototype.$message = message;
+message.config({
+  duration: 2, // 持续时间
+  top: `50px`, // 到页面顶部距离
+  maxCount: 3, // 最大显示数, 超过限制时，最早的消息会被自动关闭
+});
 
 new Vue({
   router,
