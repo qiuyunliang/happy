@@ -3,19 +3,17 @@
     <div class="container">
       <div class="top">
         <div class="header">
-          <a href="/user/login">
-            <img src="../../assets/happy.png" width="200" />
+          <a href="/signin">
+            <img src="../../assets/happy.png" width="180" />
           </a>
         </div>
       </div>
 
       <div class="main">
-        <a-form
-          id="components-form-demo-normal-login"
-          :form="form"
-          class="login-form"
-          @submit="handleSubmit"
-        >
+        <a-form id="components-form-demo-normal-login" :form="form" class="login-form" @submit="handleSubmit">
+          <a-form-item :style="{ display: 'none !important' }">
+            <a-input type="password" autocomplete="new-password"></a-input>
+          </a-form-item>
           <a-form-item>
             <a-input
               v-decorator="[
@@ -24,13 +22,10 @@
                   rules: [{ required: true, message: '请输入用户名!' }],
                 },
               ]"
-              placeholder="用户名"
+              placeholder="大名"
+              autocomplete="off"
             >
-              <a-icon
-                slot="prefix"
-                type="user"
-                style="color: rgba(0,0,0,.25)"
-              />
+              <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
             </a-input>
           </a-form-item>
           <a-form-item>
@@ -42,13 +37,10 @@
                 },
               ]"
               type="password"
-              placeholder="密码"
+              autocomplete="new-password"
+              placeholder="口号"
             >
-              <a-icon
-                slot="prefix"
-                type="lock"
-                style="color: rgba(0,0,0,.25)"
-              />
+              <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
             </a-input>
           </a-form-item>
           <a-form-item>
@@ -62,21 +54,17 @@
               ]"
               class="login-form-remember"
             >
-              自动登录
+              只确认眼神
             </a-checkbox>
             <a class="login-form-forgot" href="">
-              忘记密码
+              忘记口号
             </a>
-            <a-button
-              type="primary"
-              html-type="submit"
-              class="login-form-button"
-            >
-              登录
+            <a-button type="primary" html-type="submit" class="login-form-button">
+              进去看看
             </a-button>
-            还没有账号?
-            <a href="/user/register">
-              立即注册
+            还没有参与?
+            <a href="/register">
+              立刻加入
             </a>
           </a-form-item>
         </a-form>
@@ -114,7 +102,7 @@ export default {
             const { code, token } = response.data;
             this.$message.success('登录成功！');
             this.$store.commit('updateToken', token);
-            this.$router.push('/');
+            this.$router.push('/index');
           });
         }
       });
@@ -162,6 +150,7 @@ export default {
 #components-form-demo-normal-login .login-form-button {
   width: 100%;
   margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .ant-form-item div.ant-form-explain {

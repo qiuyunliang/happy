@@ -1,9 +1,9 @@
 <template>
   <a-layout id="components-layout-demo-fixed">
     <Header />
-    <a-layout-content :style="{ padding: '0 0px', marginTop: '64px' }">
+    <a-layout-content :style="{ padding: '0 0px', marginTop: '36px' }">
       <div id="content">
-        Content
+        to be continue…
       </div>
     </a-layout-content>
     <Footer />
@@ -25,18 +25,39 @@ export default {
 </script>
 
 <style>
+@import '../common/font/letter.css';
 #content {
-  line-height: 500px;
-  height: 500px;
+  line-height: 100%;
+  height: 100%;
+  background-color: white;
+  color: #007dee;
+  padding-bottom: 5%;
+  font-size: 30px;
+  font-family: PoiretOne-Regular !important;
+  font-weight: bold;
+
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
 }
 
 .ant-menu-item.ant-menu-item-selected,
 .ant-menu-item.ant-menu-item-active {
-  font-size: 16px !important;
+  font-size: 14px !important;
   color: #007dee !important;
   border-bottom: 2px solid #007dee !important;
+  padding: 0 !important;
+  margin: 0 10px !important;
 }
 .ant-menu-item {
-  font-size: 16px !important;
+  font-size: 14px !important;
+  padding: 0 !important;
+  margin: 0 10px !important;
 }
 </style>

@@ -4,6 +4,7 @@ module.exports = {
   singleQuote: true,
   // 在最后一个元素自动加上逗号
   trailingComma: 'all',
+  printWidth: 150,
   // 重写html格式的校验规则
   overrides: [
     {

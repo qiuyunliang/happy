@@ -9,68 +9,38 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/user',
-    component: () =>
-      import(/* webpackChunkName: "layout" */ '../layouts/UserLayout'),
+    component: () => import(/* webpackChunkName: "layout" */ '../layouts/UserLayout'),
     children: [
       // 重定向至登录页面
       {
         path: '/usr',
-        redirect: '/user/login',
+        redirect: '/signin',
       },
       {
-        path: '/user/login',
+        path: '/signin',
         name: 'login',
-        component: () =>
-          import(/* webpackChunkName: "user" */ '../views/user/Login.vue'),
+        component: () => import(/* webpackChunkName: "user" */ '../views/user/Login.vue'),
       },
       {
-        path: '/user/register',
+        path: '/register',
         name: 'register',
-        component: () =>
-          import(/* webpackChunkName: "user" */ '../views/user/Register.vue'),
+        component: () => import(/* webpackChunkName: "user" */ '../views/user/Register.vue'),
       },
     ],
   },
   {
+    path: '/signin',
+    component: () => import(/* webpackChunkName: "layout" */ '../views/user/Login.vue'),
+    children: [],
+  },
+  {
     path: '/',
-    component: () =>
-      import(/* webpackChunkName: "layout" */ '../layouts/BasicLayout.vue'),
-    children: [
-      // 仪表盘dashboard
-      // {
-      //   path: '/',
-      //   redirect: '/dashboard/analysis',
-      // },
-      // {
-      //   path: '/dashboard',
-      //   name: 'dashboard',
-      //   component: { render: h => h('router-view') },
-      //   children: [
-      //     {
-      //       path: '/dashboard/analysis',
-      //       name: 'analysis',
-      //       component: () =>
-      //         import(
-      //           /* webpackChunkName: "dashboard" */ '../views/Dashboard/Analysis'
-      //         ),
-      //     },
-      //   ],
-      // },
-      // // form
-      // {
-      //   path: '/form',
-      //   name: 'form',
-      //   component: { render: h => h('router-view') },
-      //   children: [
-      //     {
-      //       path: '/form/basic-form',
-      //       name: 'basicform',
-      //       component: () =>
-      //         import(/* webpackChunkName: "form" */ '../views/forms/BasicForm'),
-      //     },
-      //   ],
-      // },
-    ],
+    redirect: '/signin',
+  },
+  {
+    path: '/index',
+    component: () => import(/* webpackChunkName: "layout" */ '../layouts/BasicLayout'),
+    children: [],
   },
   {
     path: '*',

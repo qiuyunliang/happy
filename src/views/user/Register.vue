@@ -1,155 +1,201 @@
 <template>
-  <div id="container">
-    <div id="register">
-      <div style="display: inline-block;">
-        <a-form :form="form" @submit="handleSubmit">
-          <a-form-item v-bind="formItemLayout" label="电子邮箱">
-            <a-input
-              autocomplete="off"
-              v-decorator="[
-                'email',
-                {
-                  rules: [
-                    {
-                      type: 'email',
-                      message: '您输入的并不是什么有效邮箱地址!',
-                    },
-                    {
-                      required: true,
-                      message: '请您输入邮箱地址!',
-                    },
-                  ],
-                },
-              ]"
-              com
-            />
-          </a-form-item>
-          <a-form-item v-bind="formItemLayout" label="密码" has-feedback>
-            <a-input
-              v-decorator="[
-                'password',
-                {
-                  rules: [
-                    {
-                      required: true,
-                      message: '请您输入密码!',
-                    },
-                    {
-                      validator: validateToNextPassword,
-                    },
-                  ],
-                },
-              ]"
-              type="password"
-            />
-          </a-form-item>
-          <a-form-item v-bind="formItemLayout" label="确认密码" has-feedback>
-            <a-input
-              v-decorator="[
-                'confirm',
-                {
-                  rules: [
-                    {
-                      required: true,
-                      message: '请您重复输入一次密码!',
-                    },
-                    {
-                      validator: compareToFirstPassword,
-                    },
-                  ],
-                },
-              ]"
-              type="password"
-              @blur="handleConfirmBlur"
-            />
-          </a-form-item>
-          <a-form-item v-bind="formItemLayout">
-            <span slot="label">
-              昵称
-            </span>
-            <a-input
-              v-decorator="[
-                'nickname',
-                {
-                  rules: [
-                    {
-                      required: true,
-                      message: '请您输入您将使用的昵称!',
-                      whitespace: true,
-                    },
-                  ],
-                },
-              ]"
-            />
-          </a-form-item>
-          <a-form-item v-bind="formItemLayout" label="电话号码">
-            <a-input
-              v-decorator="[
-                'phone',
-                {
-                  rules: [
-                    {
-                      required: false,
-                      message: '希望您愿意让我们必要时有机会和您取得联系!',
-                    },
-                  ],
-                },
-              ]"
-              style="width: 100%"
-              placeHolder="151..."
-            >
-              <a-select
-                slot="addonBefore"
-                v-decorator="['prefix', { initialValue: '86' }]"
-                style="width: 70px"
-              >
-                <a-select-option value="86">
-                  +86
-                </a-select-option>
-                <a-select-option value="87">
-                  +87
-                </a-select-option>
-              </a-select>
-            </a-input>
-          </a-form-item>
-          <a-form-item v-bind="formItemLayout" label="验证码">
-            <a-row :gutter="8">
-              <a-col :span="15">
-                <a-input
-                  v-decorator="[
-                    'captcha',
-                    {
-                      rules: [
-                        {
-                          required: true,
-                          message: '请输入您最新获取到的验证码!',
-                        },
-                      ],
-                    },
-                  ]"
-                />
-              </a-col>
-              <a-col :span="9">
-                <a-button class="button-captcha">获取验证码</a-button>
-              </a-col>
-            </a-row>
-          </a-form-item>
-          <a-form-item v-bind="tailFormItemLayout">
-            <a-checkbox :checked="checked" @change="onChange">
-              我已阅读并同意
-              <a href="">
-                用户协议
-              </a>
-            </a-checkbox>
-          </a-form-item>
-          <a-form-item v-bind="tailFormItemLayout">
-            <a-button type="primary" html-type="submit" :disabled="!checked">
-              注册提交
-            </a-button>
-          </a-form-item>
-        </a-form>
+  <div class="parent">
+    <div id="container" :style="[{ display: resultVisible ? 'none' : 'block' }]">
+      <div id="title">
+        HAPPY, come to me…
       </div>
-      <div style="width: 160px;display: inline-block"></div>
+      <div id="register">
+        <div style="display: inline-block;">
+          <a-form :form="form" @submit="handleSubmit">
+            <a-form-item :style="{ display: 'none !important' }">
+              <a-input type="password" autocomplete="new-password"></a-input>
+            </a-form-item>
+            <a-form-item v-bind="formItemLayout">
+              <span slot="label">
+                大名
+              </span>
+              <a-input
+                v-decorator="[
+                  'nickname',
+                  {
+                    rules: [
+                      {
+                        required: true,
+                        message: '请您输入您将使用的大名!',
+                        whitespace: true,
+                      },
+                    ],
+                  },
+                ]"
+              />
+            </a-form-item>
+            <a-form-item v-bind="formItemLayout" label="口号" has-feedback>
+              <a-input
+                v-decorator="[
+                  'password',
+                  {
+                    rules: [
+                      {
+                        required: true,
+                        message: '请您输入口号!',
+                      },
+                      {
+                        validator: validateToNextPassword,
+                      },
+                    ],
+                  },
+                ]"
+                type="password"
+              />
+            </a-form-item>
+            <a-form-item v-bind="formItemLayout" label="确认口号" has-feedback>
+              <a-input
+                v-decorator="[
+                  'confirm',
+                  {
+                    rules: [
+                      {
+                        required: true,
+                        message: '请您重复输入一次口号!',
+                      },
+                      {
+                        validator: compareToFirstPassword,
+                      },
+                    ],
+                  },
+                ]"
+                type="password"
+                @blur="handleConfirmBlur"
+              />
+            </a-form-item>
+            <a-form-item v-bind="formItemLayout" label="电子信箱">
+              <a-input
+                autocomplete="off"
+                v-decorator="[
+                  'email',
+                  {
+                    rules: [
+                      {
+                        type: 'email',
+                        message: '您输入的并不是什么有效的电子信箱!',
+                      },
+                      {
+                        required: true,
+                        message: '请您输入电子信箱!',
+                      },
+                    ],
+                  },
+                ]"
+              />
+            </a-form-item>
+            <a-form-item v-bind="formItemLayout" label="您的热线">
+              <a-input
+                v-decorator="[
+                  'phone',
+                  {
+                    rules: [
+                      {
+                        required: false,
+                        message: '希望您愿意让我们必要时有机会和您取得联系!',
+                      },
+                    ],
+                  },
+                ]"
+                style="width: 100%"
+                placeholder="151..."
+              >
+                <a-select slot="addonBefore" v-decorator="['prefix', { initialValue: '86' }]" style="width: 70px">
+                  <a-select-option value="86">
+                    +86
+                  </a-select-option>
+                  <a-select-option value="87">
+                    +87
+                  </a-select-option>
+                </a-select>
+              </a-input>
+            </a-form-item>
+            <a-form-item v-bind="formItemLayout" label="暗号">
+              <a-row :gutter="8">
+                <a-col :span="15">
+                  <a-input
+                    v-decorator="[
+                      'captcha',
+                      {
+                        rules: [
+                          {
+                            required: true,
+                            message: '请输入您最新获取到的暗号!',
+                          },
+                        ],
+                      },
+                    ]"
+                  />
+                </a-col>
+                <a-col :span="9">
+                  <a-button class="button-captcha" @click="getCaptcha">发射暗号</a-button>
+                </a-col>
+              </a-row>
+            </a-form-item>
+            <a-form-item v-bind="tailFormItemLayout">
+              <a-checkbox :checked="checked" @change="onChange">
+                我也有这样的
+              </a-checkbox>
+              <a style="color: #007dee" @click="() => (modalVisible = true)">
+                认识想法
+              </a>
+            </a-form-item>
+            <a-form-item v-bind="tailFormItemLayout">
+              <a-button :block="true" type="primary" html-type="submit" :disabled="!checked">
+                注册提交
+              </a-button>
+            </a-form-item>
+
+            <a-button
+              :block="true"
+              style="color: #007dee; font-size: 10px; text-align: right; padding: 0"
+              type="link"
+              @click="$router.push('/signin')"
+              >…下次再说</a-button
+            >
+          </a-form>
+          <a-modal
+            v-model="modalVisible"
+            title="我以为我们都应该…"
+            centered
+            ok-text="那还用说"
+            cancel-text="额…"
+            :closable="false"
+            :maskClosable="false"
+            @ok="() => ((modalVisible = false), (checked = true))"
+            @cancel="() => ((modalVisible = false), (checked = false))"
+          >
+            <p>爱国守法，明礼诚信；</p>
+            <p>喜欢自己；</p>
+            <p>努力。</p>
+          </a-modal>
+        </div>
+        <div style="width: 160px;display: inline-block"></div>
+      </div>
+    </div>
+    <div
+      id="result"
+      :style="[
+        {
+          display: resultVisible ? 'block' : 'none',
+          marginBottom: '10%',
+        },
+      ]"
+    >
+      <a-result title="太开心了，有你的到来。" sub-title="亲爱的朋友，欢迎加入大家庭，一起来感受美好、创造未来呀 ！">
+        <template #icon>
+          <a-icon style="transform: rotate(10deg)" type="smile" theme="twoTone" />
+        </template>
+        <template #extra>
+          <a-button style="font-size: 16px; color: #007dee; margin: 0" type="dashed" @click="$router.push('/index')">
+            心的开始
+          </a-button>
+        </template>
+      </a-result>
     </div>
   </div>
 </template>
@@ -159,6 +205,8 @@ export default {
   name: 'Register',
   data() {
     return {
+      resultVisible: false,
+      modalVisible: false,
       checked: false,
       confirmDirty: false,
       autoCompleteResult: [],
@@ -195,6 +243,7 @@ export default {
       this.form.validateFieldsAndScroll((err, values) => {
         if (!err) {
           console.log('Received values of form: ', values);
+          this.resultVisible = true;
         }
       });
     },
@@ -220,6 +269,12 @@ export default {
     onChange(e) {
       this.checked = e.target.checked;
     },
+    getCaptcha() {
+      this.$message.info({ content: '6F3W', duration: 2 });
+    },
+    setModal1Visible(modal1Visible) {
+      this.modal1Visible = modal1Visible;
+    },
   },
 };
 </script>
@@ -238,13 +293,36 @@ export default {
   vertical-align: middle;
 }
 
+#result {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#result .ant-btn-primary {
+  color: #fff;
+  background-color: #1890ff;
+  border-color: #1890ff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  width: 20% !important;
+}
+
 input#register_captcha.ant-input {
   width: 100%;
 }
+@import '../../common/font/letter.css';
+div#title {
+  padding-top: 120px;
+  font-size: 30px;
+  color: #007dee;
+  font-family: PoiretOne-Regular !important;
+  font-weight: bold !important;
+}
 
 div#register {
+  min-width: 300px;
   margin: auto;
-  padding-top: 160px;
+  padding-top: 50px;
 }
 
 button.button-captcha.ant-btn {
@@ -252,12 +330,17 @@ button.button-captcha.ant-btn {
   margin-left: 10%;
 }
 
-.ant-btn-primary {
-  color: #fff;
-  background-color: #1890ff;
-  border-color: #1890ff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-  width: 100%;
+.parent {
+  line-height: 100%;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
 }
 </style>

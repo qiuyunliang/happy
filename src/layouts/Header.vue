@@ -1,21 +1,13 @@
 <template>
-  <a-layout-header
-    id="components-layout-demo-fixed"
-    :style="{ position: 'fixed', zIndex: 1, width: '100%' }"
-  >
+  <a-layout-header id="components-layout-demo-fixed" :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
     <div class="logo">
-      <a href="/user/login">
-        <img id="img-logo" src="../assets/happy.png" height="24px" />
+      <a href="/signin">
+        <img id="img-logo" src="../assets/happy.png" height="20px" />
       </a>
     </div>
-    <a-menu
-      theme="light"
-      mode="horizontal"
-      :default-selected-keys="['1']"
-      :style="{ lineHeight: '38px' }"
-    >
+    <a-menu theme="light" mode="horizontal" :default-selected-keys="['3']" :style="{ lineHeight: '38px' }">
       <a-menu-item key="1">
-        静止
+        安静
       </a-menu-item>
       <a-menu-item key="2">
         唠叨

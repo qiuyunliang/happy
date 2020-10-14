@@ -1,5 +1,5 @@
 <template>
-  <router-view id="app" />
+  <router-view id="app" v-title data-title="HAPPY" />
 </template>
 
 <style lang="less">
