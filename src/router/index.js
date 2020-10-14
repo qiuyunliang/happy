@@ -8,34 +8,34 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/user',
+    path: '/account',
     component: () => import(/* webpackChunkName: "layout" */ '../layouts/UserLayout'),
     children: [
       // 重定向至登录页面
       {
-        path: '/usr',
-        redirect: '/signin',
+        path: '/user',
+        redirect: '/account/signin',
       },
       {
-        path: '/signin',
+        path: '/account/signin',
         name: 'login',
-        component: () => import(/* webpackChunkName: "user" */ '../views/user/Login.vue'),
+        component: () => import(/* webpackChunkName: "account" */ '../views/account/Login.vue'),
       },
       {
-        path: '/register',
+        path: '/account/register',
         name: 'register',
-        component: () => import(/* webpackChunkName: "user" */ '../views/user/Register.vue'),
+        component: () => import(/* webpackChunkName: "account" */ '../views/account/Register.vue'),
+      },
+      {
+        path: '/account/reset/password',
+        name: 'register',
+        component: () => import(/* webpackChunkName: "account" */ '../views/account/ResetPassword.vue'),
       },
     ],
   },
   {
-    path: '/signin',
-    component: () => import(/* webpackChunkName: "layout" */ '../views/user/Login.vue'),
-    children: [],
-  },
-  {
     path: '/',
-    redirect: '/signin',
+    redirect: '/account/signin',
   },
   {
     path: '/index',

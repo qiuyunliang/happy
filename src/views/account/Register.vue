@@ -141,7 +141,7 @@
                 我也有这样的
               </a-checkbox>
               <a style="color: #007dee" @click="() => (modalVisible = true)">
-                认识想法
+                认识 & 想法
               </a>
             </a-form-item>
             <a-form-item v-bind="tailFormItemLayout">
@@ -154,7 +154,7 @@
               :block="true"
               style="color: #007dee; font-size: 10px; text-align: right; padding: 0"
               type="link"
-              @click="$router.push('/signin')"
+              @click="$router.push('/account/signin')"
               >…下次再说</a-button
             >
           </a-form>
@@ -254,7 +254,7 @@ export default {
     compareToFirstPassword(rule, value, callback) {
       const form = this.form;
       if (value && value !== form.getFieldValue('password')) {
-        callback('您刚刚两次输入的密码不一致!');
+        callback('您刚刚两次输入的口号不一致!');
       } else {
         callback();
       }

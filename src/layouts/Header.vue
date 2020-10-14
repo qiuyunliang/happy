@@ -1,7 +1,7 @@
 <template>
   <a-layout-header id="components-layout-demo-fixed" :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
     <div class="logo">
-      <a href="/signin">
+      <a href="/account/signin">
         <img id="img-logo" src="../assets/happy.png" height="20px" />
       </a>
     </div>

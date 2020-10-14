@@ -3,8 +3,8 @@
     <div class="container">
       <div class="top">
         <div class="header">
-          <a href="/signin">
-            <img src="../../assets/happy.png" width="180" />
+          <a href="/account/signin">
+            <img src="../../assets/happy.png" width="160" />
           </a>
         </div>
       </div>
@@ -19,7 +19,7 @@
               v-decorator="[
                 'userName',
                 {
-                  rules: [{ required: true, message: '请输入用户名!' }],
+                  rules: [{ required: true, message: '请输入大名!' }],
                 },
               ]"
               placeholder="大名"
@@ -33,7 +33,7 @@
               v-decorator="[
                 'password',
                 {
-                  rules: [{ required: true, message: '请输入密码!' }],
+                  rules: [{ required: true, message: '请输入口号!' }],
                 },
               ]"
               type="password"
@@ -56,14 +56,14 @@
             >
               只确认眼神
             </a-checkbox>
-            <a class="login-form-forgot" href="">
+            <a class="login-form-forgot" href="/account/reset/password">
               忘记口号
             </a>
             <a-button type="primary" html-type="submit" class="login-form-button">
               进去看看
             </a-button>
-            还没有参与?
-            <a href="/register">
+            还没有参与？
+            <a href="/account/register">
               立刻加入
             </a>
           </a-form-item>
