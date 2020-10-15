@@ -5,10 +5,26 @@
         Missing…
       </div>
       <div id="register">
-        <div style="display: inline-block;">
+        <div style="display: inline-block; line-height: 400px;">
           <a-form :form="form" @submit="handleSubmit">
             <a-form-item :style="{ display: 'none !important' }">
               <a-input type="password" autocomplete="new-password"></a-input>
+            </a-form-item>
+            <a-form-item v-bind="formItemLayout" label="大名">
+              <a-input
+                v-decorator="[
+                  'nickname',
+                  {
+                    rules: [
+                      {
+                        required: true,
+                        message: '朋友，请问你是？',
+                        whitespace: true,
+                      },
+                    ],
+                  },
+                ]"
+              />
             </a-form-item>
             <a-form-item v-bind="formItemLayout" label="电子信箱">
               <a-input
@@ -23,14 +39,14 @@
                       },
                       {
                         required: true,
-                        message: '请您输入电子信箱!',
+                        message: '想想初次见面那时的电子信箱!',
                       },
                     ],
                   },
                 ]"
               />
             </a-form-item>
-            <a-form-item v-bind="formItemLayout" label="暗号">
+            <a-form-item class="last-captcha-explain" v-bind="formItemLayout" label="暗号">
               <a-row :gutter="8">
                 <a-col :span="15">
                   <a-input
@@ -63,11 +79,11 @@
               style="color: #007dee; font-size: 10px; text-align: right; padding: 0"
               type="link"
               @click="$router.push('/account/signin')"
-              >… 嘿嘿，灵光一闪，不用啦</a-button
+              >… 嘿嘿，灵光一闪，不需要咯</a-button
             >
           </a-form>
         </div>
-        <div style="width: 160px;display: inline-block"></div>
+        <div class="form-blank" style="width: 20%; display: inline-block"></div>
       </div>
     </div>
     <div
@@ -79,7 +95,7 @@
         },
       ]"
     >
-      <a-result title="别着急，我们马上到。" sub-title="">
+      <a-result title="别着急，我们马上就到。" sub-title="">
         <template #icon>
           <div
             style="height: fit-content; border-bottom: dashed;margin-bottom: 30px; border-bottom-width: thick; border-bottom-color: #007dee; border-bottom-style: dotted;"
@@ -88,7 +104,7 @@
           </div>
         </template>
         <template #extra>
-          <a-button style="font-size: 16px; color: #007dee; margin: 0" type="dashed" @click="$router.push('/account/signin')">
+          <a-button style="font-size: 14px; color: #007dee; margin: 0" type="dashed" @click="$router.push('/account/signin')">
             继续前行
           </a-button>
         </template>
@@ -155,13 +171,16 @@ export default {
 
 <style scoped>
 #register .ant-form.ant-form-horizontal {
-  width: 500px;
+  width: 400px;
   margin: auto;
 }
 
 #container {
-  height: fit-content;
-  padding-bottom: 10%;
+  width: 100%;
+  min-height: 100%;
+  background-size: 100%;
+  padding: 180px 0 180px;
+  position: relative;
 }
 
 #container#register {
@@ -169,7 +188,7 @@ export default {
 }
 
 #result {
-  width: 800px;
+  width: 700px;
   margin: 0 auto;
 }
 
@@ -185,18 +204,20 @@ export default {
 input#register_captcha.ant-input {
   width: 100%;
 }
+
 @import '../../common/font/letter.css';
 div#title {
   font-size: 30px;
   color: #007dee;
   font-family: PoiretOne-Regular !important;
   font-weight: bold !important;
+  line-height: 50px;
 }
 
 div#register {
-  min-width: 300px;
-  margin: auto;
-  padding-top: 50px;
+  min-width: 560px;
+  width: 560px;
+  margin: 50px auto;
 }
 
 button.button-captcha.ant-btn {
@@ -216,5 +237,17 @@ button.button-captcha.ant-btn {
   -moz-box-orient: horizontal;
   -moz-box-pack: center;
   -moz-box-align: center;
+}
+
+@media screen and (max-width: 560px) {
+  #register .form-blank {
+    width: 0 !important;
+  }
+
+  div#register {
+    min-width: 400px;
+    width: 400px;
+    margin: 50px auto;
+  }
 }
 </style>

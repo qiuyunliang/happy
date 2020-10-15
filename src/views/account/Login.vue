@@ -2,11 +2,7 @@
   <div id="loginLayout" class="login-layout-wrapper">
     <div class="container">
       <div class="top">
-        <div class="header">
-          <a href="/account/signin">
-            <img src="../../assets/happy.png" width="160" />
-          </a>
-        </div>
+        HAPPY
       </div>
 
       <div class="main">
@@ -19,7 +15,7 @@
               v-decorator="[
                 'userName',
                 {
-                  rules: [{ required: true, message: '请输入大名!' }],
+                  rules: [{ required: true, message: '输入大名吧！' }],
                 },
               ]"
               placeholder="大名"
@@ -33,7 +29,7 @@
               v-decorator="[
                 'password',
                 {
-                  rules: [{ required: true, message: '请输入口号!' }],
+                  rules: [{ required: true, message: '口号必不可少的！' }],
                 },
               ]"
               type="password"
@@ -49,12 +45,12 @@
                 'remember',
                 {
                   valuePropName: 'checked',
-                  initialValue: true,
+                  initialValue: false,
                 },
               ]"
               class="login-form-remember"
             >
-              只确认眼神
+              只要确认眼神
             </a-checkbox>
             <a class="login-form-forgot" href="/account/reset/password">
               忘记口号
@@ -115,18 +111,24 @@ export default {
   height: 100%;
 }
 
+@import '../../common/font/letter.css';
 #loginLayout.login-layout-wrapper .container .top {
-  padding-bottom: 80px;
+  padding-bottom: 60px;
   min-width: 260px;
   width: 368px;
   margin: 0 auto;
+  font-size: 40px;
+  color: #007dee;
+  font-family: PoiretOne-Regular !important;
+  font-weight: bold !important;
+  line-height: 50px;
 }
 
 #loginLayout.login-layout-wrapper .container {
   width: 100%;
   min-height: 100%;
   background-size: 100%;
-  padding: 180px 0 180px;
+  padding: 170px 0 100px;
   position: relative;
 }
 
@@ -139,6 +141,7 @@ export default {
 .login-form {
   max-width: 600px !important;
   margin-left: auto;
+  padding: 0 20px;
   margin-right: auto;
 }
 .login-form-remember {

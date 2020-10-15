@@ -2,7 +2,7 @@
   <a-layout-header id="components-layout-demo-fixed" :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
     <div class="logo">
       <a href="/account/signin">
-        <img id="img-logo" src="../assets/happy.png" height="20px" />
+        HAPPY
       </a>
     </div>
     <a-menu theme="light" mode="horizontal" :default-selected-keys="['3']" :style="{ lineHeight: '38px' }">
@@ -29,7 +29,6 @@ export default {
 #components-layout-demo-fixed {
   position: relative;
   z-index: 100;
-  min-width: 1000px;
   overflow: hidden;
   padding: 0 !important;
   background: #fff;
@@ -44,21 +43,26 @@ export default {
 }
 #components-layout-demo-fixed .logo {
   width: 120px;
-  height: 30px !important;
+  height: 40px !important;
   background: rgba(255, 255, 255, 0.2);
-  margin: 0px 24px 5px 36px;
+  padding-left: 30px;
   float: left;
 }
 .ant-menu-horizontal {
   float: right;
-  padding-right: 30px;
+  padding-right: 20px;
 }
 ant-menu ant-menu-horizontal ant-menu-root ant-menu-light {
   line-height: 38px !important;
   height: 38px !important;
 }
 
+@import '../common/font/letter.css';
 a {
   float: left;
+  font-size: 20px;
+  color: #007dee;
+  font-family: PoiretOne-Regular !important;
+  font-weight: bold !important;
 }
 </style>

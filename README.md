@@ -1,31 +1,20 @@
-<h1 align="center">dragonfly</h1>
+<h1 align="center">
+  <a target="_blank">HAPPY</a>
+</h1>
 
-## Overview
+<div align="center">
 
-```
-to be continue...
-```
+[![npm package](https://img.shields.io/npm/v/ant-design-vue.svg?style=flat-square)](https://www.npmjs.org/package/ant-design-vue)
 
-## Project Usage
+</div>
 
-- Install dependencies
+## Features
 
-```
-npm install
-```
+- An enterprise-class UI design system for desktop applications.
+- A set of high-quality Vue components out of the box.
+- Shared [Ant Design of React](https://ant.design/docs/spec/introduce) design resources.
 
-- Compiles and hot-reloads for development
+## Links
 
-```
-npm run serve
-```
-
-- Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Other
-
-to be continue...
+- [Vue](https://vuejs.org/)
+- [Ant Design Of React](http://ant.design/)

@@ -14,7 +14,6 @@ export default {
   color: rgba(0, 0, 0, 0.35);
   font-size: 14px;
   min-width: 260px;
-  width: 368px;
   margin: 0 auto;
 }
 

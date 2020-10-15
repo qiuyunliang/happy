@@ -1,5 +1,28 @@
 // 去掉下列注释全局覆盖antdv的指定样式, 要求先用cnpm安装less-loader和less, 并在vue.config.js中开启javascriptEnabled
-//@import '~ant-design-vue/dist/antd.less';
-//.ant-form-explain {
-//  text-align: right !important;
-//}
+@import '~ant-design-vue/dist/antd.less';
+.ant-form-explain {
+  text-align: left !important;
+}
+
+.register-modal .ant-modal-footer {
+  padding: 10px 16px;
+  text-align: right;
+  background: transparent;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+.register-modal .ant-modal-body {
+  padding: 16px 24px 0 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.register-modal .ant-btn {
+  width: 88px !important;
+}
+
+.last-captcha-explain .ant-form-explain {
+  height: 20px !important;
+  min-height: 20px !important;
+}

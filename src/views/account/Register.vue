@@ -10,10 +10,7 @@
             <a-form-item :style="{ display: 'none !important' }">
               <a-input type="password" autocomplete="new-password"></a-input>
             </a-form-item>
-            <a-form-item v-bind="formItemLayout">
-              <span slot="label">
-                大名
-              </span>
+            <a-form-item v-bind="formItemLayout" label="大名">
               <a-input
                 v-decorator="[
                   'nickname',
@@ -114,7 +111,7 @@
                 </a-select>
               </a-input>
             </a-form-item>
-            <a-form-item v-bind="formItemLayout" label="暗号">
+            <a-form-item class="last-captcha-explain" v-bind="formItemLayout" label="暗号">
               <a-row :gutter="8">
                 <a-col :span="15">
                   <a-input
@@ -159,19 +156,20 @@
             >
           </a-form>
           <a-modal
+            class="register-modal"
             v-model="modalVisible"
             title="我以为我们都应该…"
             centered
             ok-text="那还用说"
             cancel-text="额…"
             :closable="false"
-            :maskClosable="false"
+            :mask-closable="false"
             @ok="() => ((modalVisible = false), (checked = true))"
             @cancel="() => ((modalVisible = false), (checked = false))"
           >
             <p>爱国守法，明礼诚信；</p>
             <p>喜欢自己；</p>
-            <p>努力。</p>
+            <p style="margin: 0">努力。</p>
           </a-modal>
         </div>
         <div style="width: 160px;display: inline-block"></div>
@@ -272,9 +270,6 @@ export default {
     getCaptcha() {
       this.$message.info({ content: '6F3W', duration: 2 });
     },
-    setModal1Visible(modal1Visible) {
-      this.modal1Visible = modal1Visible;
-    },
   },
 };
 </script>
@@ -283,10 +278,12 @@ export default {
 #register .ant-form.ant-form-horizontal {
   width: 500px;
   margin: auto;
+  padding: 5px;
 }
 
 #container {
-  height: 100%;
+  height: fit-content;
+  padding-bottom: 2%;
 }
 
 #container#register {
@@ -294,7 +291,7 @@ export default {
 }
 
 #result {
-  width: 500px;
+  width: 700px;
   margin: 0 auto;
 }
 
@@ -312,22 +309,29 @@ input#register_captcha.ant-input {
 }
 @import '../../common/font/letter.css';
 div#title {
-  padding-top: 120px;
   font-size: 30px;
   color: #007dee;
   font-family: PoiretOne-Regular !important;
   font-weight: bold !important;
+  line-height: 50px;
 }
 
 div#register {
   min-width: 300px;
-  margin: auto;
-  padding-top: 50px;
+  margin: 50px auto;
 }
 
 button.button-captcha.ant-btn {
   width: 90%;
   margin-left: 10%;
+}
+
+.ant-modal-footer {
+  padding: 10px 16px;
+  text-align: right;
+  background: transparent;
+  border-radius: 0 0 4px 4px;
+  border-top: 10px solid #ff0000 !important;
 }
 
 .parent {
@@ -342,5 +346,9 @@ button.button-captcha.ant-btn {
   -moz-box-orient: horizontal;
   -moz-box-pack: center;
   -moz-box-align: center;
+}
+
+.ant-form-explain {
+  text-align: left !important;
 }
 </style>
