@@ -14,15 +14,14 @@ export default {
   color: rgba(0, 0, 0, 0.35);
   font-size: 14px;
   min-width: 260px;
-  margin: 0 auto;
+  margin: 0 0;
 }
 
 .footer {
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
   padding: 0 16px;
-  margin: 48px 0 24px;
   text-align: center;
 }
 </style>

@@ -307,6 +307,7 @@ export default {
 input#register_captcha.ant-input {
   width: 100%;
 }
+
 @import '../../common/font/letter.css';
 div#title {
   font-size: 30px;
@@ -326,14 +327,6 @@ button.button-captcha.ant-btn {
   margin-left: 10%;
 }
 
-.ant-modal-footer {
-  padding: 10px 16px;
-  text-align: right;
-  background: transparent;
-  border-radius: 0 0 4px 4px;
-  border-top: 10px solid #ff0000 !important;
-}
-
 .parent {
   line-height: 100%;
   height: 100%;
@@ -346,9 +339,5 @@ button.button-captcha.ant-btn {
   -moz-box-orient: horizontal;
   -moz-box-pack: center;
   -moz-box-align: center;
-}
-
-.ant-form-explain {
-  text-align: left !important;
 }
 </style>

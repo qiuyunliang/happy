@@ -5,7 +5,7 @@
         HAPPY
       </a>
     </div>
-    <a-menu theme="light" mode="horizontal" :default-selected-keys="['3']" :style="{ lineHeight: '38px' }">
+    <a-menu theme="light" @openChange="gotoIndex" mode="horizontal" :default-selected-keys="['3']" :style="{ lineHeight: '38px' }">
       <a-menu-item key="1">
         安静
       </a-menu-item>
@@ -22,6 +22,11 @@
 <script>
 export default {
   name: 'Header',
+  methods: {
+    gotoIndex() {
+      console.log('gotoIndex');
+    },
+  },
 };
 </script>
 

@@ -59,23 +59,24 @@
               进去看看
             </a-button>
             还没有参与？
-            <a href="/account/register">
+            <a href="/account/singup">
               立刻加入
             </a>
           </a-form-item>
         </a-form>
       </div>
-      <Footer />
+    </div>
+    <div class="footer">
+      <div class="copyright">Copyright © 2020 HAPPY</div>
     </div>
   </div>
 </template>
 
 <script>
 import request from '../../utils/request';
-import Footer from '../../layouts/Footer';
 
 export default {
-  components: { Footer },
+  components: {},
   name: 'Login',
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: 'normal_login' });
@@ -126,9 +127,9 @@ export default {
 
 #loginLayout.login-layout-wrapper .container {
   width: 100%;
-  min-height: 100%;
   background-size: 100%;
-  padding: 170px 0 100px;
+  top: 50%;
+  transform: translateY(-70%);
   position: relative;
 }
 
@@ -159,5 +160,21 @@ export default {
 .ant-form-item div.ant-form-explain {
   margin-bottom: -1px;
   float: left;
+}
+
+.copyright {
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 14px;
+  min-width: 260px;
+  margin: 0 auto;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 0 16px;
+  margin: 10px 0 10px;
+  text-align: center;
 }
 </style>

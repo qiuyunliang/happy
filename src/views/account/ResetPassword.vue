@@ -2,7 +2,7 @@
   <div class="parent">
     <div id="container" :style="[{ display: resultVisible ? 'none' : 'block' }]">
       <div id="title">
-        Missing…
+        Missing
       </div>
       <div id="register">
         <div style="display: inline-block; line-height: 400px;">
@@ -83,7 +83,7 @@
             >
           </a-form>
         </div>
-        <div class="form-blank" style="width: 20%; display: inline-block"></div>
+        <div class="form-blank" style="width: 23%; display: inline-block"></div>
       </div>
     </div>
     <div

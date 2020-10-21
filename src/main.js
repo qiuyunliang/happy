@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import { Layout, Icon, Menu, Result, Button, Form, Input, Checkbox, Breadcrumb, Select, Row, Col, Modal } from 'ant-design-vue';
+import { Layout, Icon, Menu, Result, Button, Form, Input, Checkbox, Breadcrumb, Select, Row, Col, Modal, List, Avatar } from 'ant-design-vue';
 
 // 单独引入Button及其样式, 利用babel可以做到按需引入, 具体配置在babel.config.js中, 参见https://www.antdv.com/docs/vue/introduce-cn/
 // import Button from 'ant-design-vue/lib/button';
@@ -27,6 +27,8 @@ Vue.use(Select);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Modal);
+Vue.use(List);
+Vue.use(Avatar);
 
 import { message } from 'ant-design-vue';
 Vue.prototype.$message = message;
